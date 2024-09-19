@@ -158,7 +158,26 @@ var Game = {
         if (this.ball.moveX === DIRECTION.RIGHT) this.ai.y += this.ai.speed / 1.5;
         else this.ai.y += this.ai.speed / 4;
       }
-      
+
+
+      // Handle ai (AI) wall collision
+      this(this.ai.y < this.canvas.height - this.ai.height) this.ai.y = this.canvas.height -
+      this.ai.height;
+      else if (this.ai.y <= 0) this.ai.y = 0;
+
+
+    // Handle Player-Ball collisions
+    if (this.ball.x - this.ball.width <= this.player.x && this.ball.x >= this.player.x - this.player.width) {
+      if (this.ball.y <= this.player.y + this.player.height && this.ball.y + this.ball.height >= this.player.y) {
+        this.ball.x = (this.player.x + this.ball.width);
+        this.ball.moveX = DIRECTION.RIGHT;
+      }
+    }
+
+
+    // Handle ai-ball collision
+    if (this.ball.x - this.ball.width <= this.ai.x && this.ball.x >= this.ai.x - this.ai.width) {
+    if (this.ball.y <= this.ai.y + this.ai.height && this.ball.y + this.ball.height >=
     }
   },
 };
