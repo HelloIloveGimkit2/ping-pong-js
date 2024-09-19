@@ -153,6 +153,12 @@ var Game = {
       if (this.ai.y > this.ball.y - (this.ai.height / 2)) {
         if (this.ball.moveX === DIRECTION.RIGHT) this.ai.y -= this.ai.speed / 1.5;
         else this.ai.y -= this.ai.speed / 4;
+      }
+      if (this.ai.y < this.ball.y - (this.ai.height / 2)) {
+        if (this.ball.moveX === DIRECTION.RIGHT) this.ai.y += this.ai.speed / 1.5;
+        else this.ai.y += this.ai.speed / 4;
+      }
+      
     }
   },
 };
