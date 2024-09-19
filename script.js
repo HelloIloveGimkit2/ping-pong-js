@@ -149,8 +149,10 @@ var Game = {
       if (this.ball.moveX === DIRECTION.LEFT) this.ball.x -= this.ball.speed;
       else if (this.ball.moveX === DIRECTION.RIGHT) this.ball.x += this.ball.speed;
 
-      // Hand the ai up and down movement
-      
+      // Handle the ai up and down movement
+      if (this.ai.y > this.ball.y - (this.ai.height / 2)) {
+        if (this.ball.moveX === DIRECTION.RIGHT) this.ai.y -= this.ai.speed / 1.5;
+        else this.ai.y -= this.ai.speed / 4;
     }
   },
 };
