@@ -293,3 +293,60 @@ var DIRECTION = {
     (this.canvas.width / 2) - 300,
     200
   );
+
+  this.context.fillText(
+    this.ai.score.toString(),
+    (this.canvas.width / 2) + 300,
+    200
+  );
+
+  this.context.font = '30px Courier New';
+
+
+  this.context.fillText(
+    'Round ' + (Pong.round + 1),
+    (this.canvas.width / 2),
+    35
+  );
+
+
+  this.context.font = '40px Courier';
+
+
+
+  this.context.fillText(
+    rounds[Pong.round] ? rounds[Pong.round] : rounds[Pong.round - 1],
+    (this.canvas.width / 2),
+    100
+  );
+
+loop: function () {
+  Pong.update();
+  Pong.draw();
+
+
+  if (!Pong.over) requestAnimationFrame(Pong.loop);
+},
+
+listen: function () {
+  document.addEventListener('keydown', function (key) {
+
+
+    if (Pong.running === false) {
+      Pong.running = true;
+      window.requestAnimationFrame(Pong.loop);
+    }
+
+
+
+    if (key.keyCode === 38 || key.keyCode === 87) Pong.player.move = DIRECTION.UP;
+
+    if (key.keyCode === 40 || key.keyCode === 83) Pong.player.move = DIRECTION.DOWN;
+
+  });
+
+
+
+
+  
+}
