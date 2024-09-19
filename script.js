@@ -177,7 +177,12 @@ var Game = {
 
     // Handle ai-ball collision
     if (this.ball.x - this.ball.width <= this.ai.x && this.ball.x >= this.ai.x - this.ai.width) {
-    if (this.ball.y <= this.ai.y + this.ai.height && this.ball.y + this.ball.height >=
+    if (this.ball.y <= this.ai.y + this.ai.height && this.ball.y + this.ball.height >= this.ai.y) {
+    this.ball.x = (this.ai.x - this.ball.width);
+    this.ball.moveX = DIRECTION.LEFT;
     }
+      
+  }
+}
   },
 };
