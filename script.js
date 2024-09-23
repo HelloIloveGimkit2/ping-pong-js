@@ -35,7 +35,7 @@ var Ai = {
       y: this.canvas.height / 2 - 35,
       score: 0,
       move: DIRECTION.IDLE,
-      speed: 8,
+      speed: 16,
     };
   },
 };
@@ -55,7 +55,7 @@ var Game = {
     this.ai = Ai.new.call(this, "right");
     this.ball = Ball.new.call(this);
 
-    this.ai.speed = 8;
+    this.ai.speed = 20;
     this.running = this.over = false;
     this.turn = this.ai;
     this.timer = this.round = 0;
